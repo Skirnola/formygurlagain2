@@ -1,0 +1,374 @@
+/* Update body untuk mendukung scrolling dan konten yang dinamis */
+body {
+  margin: 0;
+  font-family: "Comic Sans MS", sans-serif;
+  background: linear-gradient(to bottom right, #ffdde1, #ee9ca7);
+  min-height: 100vh;
+  text-align: center;
+  cursor: url("https://cur.cursors-4u.net/cursors/cur-9/cur817.cur"), auto;
+  position: relative;
+  overflow-x: hidden; /* Mencegah overflow horizontal */
+  box-sizing: border-box;
+}
+
+/* Konten utama dengan margin untuk menghindari strip foto */
+.container {
+  max-width: 90%;
+  width: 100%;
+  padding: 15px;
+  margin: 50px auto;
+  position: relative;
+  z-index: 15; /* Pastikan konten di atas strip foto */
+}
+
+/* Image styles optimized for mobile */
+.welcome-gif {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+  margin: 10px auto;
+  display: block;
+}
+
+/* Styling untuk teks pertanyaan */
+#question-text {
+  color: plum;
+  font-size: 1.2em;
+  background-color: rgba(255, 255, 255, 0.8); /* Background semi-transparan */
+  border: 2px solid #ff69b4; /* Border pink */
+  border-radius: 10px;
+  padding: 10px;
+  margin: 8px auto;
+  max-width: 90%;
+  box-sizing: border-box;
+}
+
+.question-image {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  margin: 10px auto;
+  border-radius: 10px;
+  border: 2px solid #ff69b4;
+  display: block;
+  background-color: rgba(255, 255, 255, 0.8); /* Background semi-transparan */
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.result-gif {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  border-radius: 10px;
+  margin: 10px auto;
+  display: block;
+}
+
+/* Styling untuk feedback jawaban */
+#answer-feedback {
+  color: white;
+  font-size: 1em;
+  margin-top: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 2px solid;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#answer-feedback.correct {
+  background-color: rgba(
+    144,
+    238,
+    144,
+    0.8
+  ); /* Hijau muda untuk jawaban benar */
+  border-color: #32cd32; /* Border hijau */
+}
+
+#answer-feedback.incorrect {
+  background-color: rgba(
+    255,
+    182,
+    193,
+    0.8
+  ); /* Merah muda untuk jawaban salah */
+  border-color: #ff4040; /* Border merah */
+}
+
+/* Adjust result screen for vertical layout */
+.result-screen.vertical-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.result-screen.vertical-result .result-gif,
+.result-screen.vertical-result button {
+  width: 100%;
+  max-width: 250px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+  .welcome-gif {
+    max-width: 250px;
+  }
+  .question-image {
+    max-width: 220px;
+  }
+  .result-gif {
+    max-width: 220px;
+  }
+  .container {
+    margin: 40px auto;
+    padding: 10px;
+  }
+}
+
+/* Rest of your existing styles */
+h1,
+h2 {
+  color: white;
+  position: relative;
+}
+
+h1::after,
+h2::after {
+  content: "💖";
+  position: absolute;
+  font-size: 0.7em;
+  margin-left: 5px;
+}
+
+button {
+  background-color: #fff;
+  color: #ff69b4;
+  border: none;
+  padding: 10px 15px;
+  font-size: 0.9em;
+  border-radius: 15px;
+  margin: 8px 0;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover {
+  background-color: #ffe6f0;
+  transform: scale(1.05);
+}
+
+button::after {
+  content: "✨";
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  font-size: 1.2em;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+button:hover::after {
+  opacity: 1;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center; /* Pusatkan tombol secara horizontal */
+  align-items: center; /* Pastikan tombol sejajar di tengah */
+}
+
+.btn-container button {
+  width: 100%;
+  max-width: 300px; /* Batasi lebar tombol agar tidak terlalu lebar */
+  text-align: center; /* Teks di dalam tombol terpusat */
+}
+
+.hidden {
+  display: none;
+}
+
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: url("https://i.imgur.com/4r1hB2C.png") no-repeat center/contain;
+  opacity: 0.7;
+  animation: float 10s infinite;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) scale(0.5);
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(20px) scale(1);
+    opacity: 0;
+  }
+}
+
+/* Styling untuk strip foto yang lebih kecil */
+.photo-wrapper {
+  width: 100%;
+  overflow: hidden;
+  height: 60px;
+  position: fixed;
+  left: 0;
+  z-index: 10;
+  background: transparent;
+}
+
+.photo-wrapper.top {
+  top: 0;
+}
+
+.photo-wrapper.bottom {
+  bottom: 0;
+}
+
+.photo-strip {
+  display: flex;
+  width: max-content;
+}
+
+.photo-strip img {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  margin: 5px;
+  border-radius: 8px;
+  border: 2px solid #ffb6c1;
+  flex-shrink: 0;
+}
+
+.scroll-left {
+  animation: scrollLeft 30s linear infinite;
+}
+
+.scroll-right {
+  animation: scrollRight 30s linear infinite;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.floating-loves-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.floating-love {
+  position: absolute;
+  animation: floatLove 5s linear infinite;
+  font-size: 20px;
+  opacity: 0;
+}
+
+@keyframes floatLove {
+  0% {
+    transform: translateY(100vh) scale(0.5);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Container for floating hearts */
+#hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Style for each heart */
+.heart {
+  position: absolute;
+  font-size: 24px;
+  animation: float 10s linear infinite;
+  opacity: 0.8;
+}
+
+/* Updated float animation */
+@keyframes float {
+  0% {
+    transform: translateY(100vh) translateX(0) scale(0.8);
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(50vh) translateX(calc(20px * var(--drift))) scale(1);
+  }
+  100% {
+    transform: translateY(-10vh) translateX(calc(40px * var(--drift)))
+      scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Updated love-message styling to fix text overlap and ensure visibility */
+#love-message {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #ff69b4;
+  padding: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  font-family: "Comic Sans MS";
+  text-align: left;
+  font-size: 0.9em;
+  line-height: 1.4;
+  overflow-wrap: break-word;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ensure the image inside love-message is centered and fits well */
+#love-message img {
+  display: block;
+  margin: 10px auto;
+  max-width: 250px;
+  height: auto;
+}

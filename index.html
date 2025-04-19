@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tebak Tebakann buat winwin tersayang</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- STRIP FOTO ATAS -->
+    <div class="photo-wrapper top">
+      <div class="photo-strip scroll-right">
+        <img src="assets/benci.jpeg" />
+        <img src="assets/hug.jpeg" />
+        <img src="assets/makananibay.jpeg" />
+        <img src="assets/palingseringmamdimana.jpeg" />
+        <img src="assets/sygwindi.jpeg" />
+        <img src="assets/tanggalibay.jpeg" />
+        <img src="assets/terserah.jpeg" />
+        <img src="assets/tgljadian.jpeg" />
+        <img src="assets/warnaibay.jpeg" />
+        <img src="assets/winskie.jpeg" />
+        <!-- ulangin buat looping halus -->
+        <img src="assets/benci.jpeg" />
+        <img src="assets/hug.jpeg" />
+        <img src="assets/makananibay.jpeg" />
+        <img src="assets/palingseringmamdimana.jpeg" />
+        <img src="assets/sygwindi.jpeg" />
+        <img src="assets/tanggalibay.jpeg" />
+        <img src="assets/terserah.jpeg" />
+        <img src="assets/tgljadian.jpeg" />
+        <img src="assets/warnaibay.jpeg" />
+        <img src="assets/winskie.jpeg" />
+      </div>
+    </div>
+    <div class="container" id="welcome-screen">
+      <img
+        id="welcome-gif"
+        src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXZjcXJzMjF5NDA5eXR0ZGlqNGJ4ZHlkNWJhMGs0dnNyMHM1bndzdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/c76IJLufpNwSULPk77/giphy.gif"
+        alt="Welcome GIF"
+        class="welcome-gif"
+      />
+      <h1>Tebak Tebakann 💖</h1>
+      <button id="start-btn">Mulai Yaa 🥺👉👈</button>
+    </div>
+
+    <div class="container hidden" id="quiz-container">
+      <h2 id="question-text"></h2>
+      <img id="question-image" class="question-image hidden" />
+      <div id="answer-buttons" class="btn-container"></div>
+    </div>
+
+    <div class="container hidden" id="result-screen">
+      <h2 id="result-message"></h2>
+      <p>Skormu: <span id="score"></span>/10</p>
+      <button onclick="location.reload()">Main Lagi ❤️</button>
+      <img id="result-gif" src="" alt="" class="result-gif" />
+      <div id="love-button-section" class="hidden">
+        <button id="love-button">Pencet akuu 💌</button>
+        <div id="love-message" class="hidden">
+          <p>
+            aku mau liatin ini ajaa ke kamuu, betewee ini kamu yang typing
+            yaa,<br /><br />
+            1. semangat yayang gemaykuuu beruang besar kuuu semangatttt🐻‍❄✨<br />
+            <strong>Rules!!!!</strong><br />
+            🚫jangan maksain teuing🚫 <br />
+            ❕jangan lupa mam🍴 <br />
+            🚫jangan sampe stress😨<br />
+            ❕inget waktu tidur yaaa😴<br />
+            🚫diisembangin mamnya juga sama buah sama vitamin atau minuman
+            berenergi kaya Pocari sweet okaayy🥗🫐🍓<br />
+            ——wupyuuuu(⁠｡⁠･⁠ω⁠･⁠｡⁠)⁠ﾉ⁠♡——<br /><br />
+            2. Maaafinnn akuuu ayang aku yang pinterr yang Sholeh yang gemoyy<br />
+            3. AKU PUN SAYANG BANYAK BANYAAAK💚<br />
+            4. Kemana aja asal sama kamuu<br />
+            5. Yaudaa, cepat sembuhhh ayaangg💗<br /><br />
+            Dan masi banyak lagii, aku ngasih ini ke kamuu, bukti kalau cinta
+            kamu itu gaakan pernah mati ke akuu sebaliknya jugaa cinta aku itu
+            gaakan pernah mati ke kamuu ehehe
+          </p>
+          <img
+            src="assets/berdua.jpeg"
+            alt="hug"
+            style="
+              max-width: 300px;
+              margin-top: 15px;
+              border-radius: 10px;
+              position: relative;
+            "
+          />
+        </div>
+      </div>
+    </div>
+    <!-- Add audio element for autoplay song -->
+    <audio id="background-music" autoplay loop>
+      <source src="assets/gluesong.mp3" type="audio/mpeg" />
+    </audio>
+    <div id="hearts-container"></div>
+    <!-- STRIP FOTO BAWAH -->
+    <div class="photo-wrapper bottom">
+      <div class="photo-strip scroll-left">
+        <img src="assets/winskie.jpeg" />
+        <img src="assets/warnaibay.jpeg" />
+        <img src="assets/tgljadian.jpeg" />
+        <img src="assets/terserah.jpeg" />
+        <img src="assets/tanggalibay.jpeg" />
+        <img src="assets/sygwindi.jpeg" />
+        <img src="assets/palingseringmamdimana.jpeg" />
+        <img src="assets/makananibay.jpeg" />
+        <img src="assets/hug.jpeg" />
+        <img src="assets/benci.jpeg" />
+        <!-- ulangin buat looping halus -->
+        <img src="assets/winskie.jpeg" />
+        <img src="assets/warnaibay.jpeg" />
+        <img src="assets/tgljadian.jpeg" />
+        <img src="assets/terserah.jpeg" />
+        <img src="assets/tanggalibay.jpeg" />
+        <img src="assets/sygwindi.jpeg" />
+        <img src="assets/palingseringmamdimana.jpeg" />
+        <img src="assets/makananibay.jpeg" />
+        <img src="assets/hug.jpeg" />
+        <img src="assets/benci.jpeg" />
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
